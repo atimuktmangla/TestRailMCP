@@ -1,0 +1,2215 @@
+[
+  {
+    "name": "TestRail_API_addAttachmentToCase",
+    "description": "[TestRail API] Maximum upload size is 256MB",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "case_id": {
+          "type": "integer"
+        },
+        "body": {}
+      },
+      "required": [
+        "case_id",
+        "body"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_addAttachmentToPlan",
+    "description": "[TestRail API] Maximum upload size is 256MB",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "plan_id": {
+          "type": "integer"
+        },
+        "body": {}
+      },
+      "required": [
+        "plan_id",
+        "body"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_addAttachmentToPlanEntry",
+    "description": "[TestRail API] Maximum upload size is 256MB",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "plan_id": {
+          "type": "integer"
+        },
+        "entry_id": {
+          "type": "string"
+        },
+        "body": {}
+      },
+      "required": [
+        "plan_id",
+        "entry_id",
+        "body"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_addAttachmentToResult",
+    "description": "[TestRail API] Maximum upload size is 256MB",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "result_id": {
+          "type": "integer"
+        },
+        "body": {}
+      },
+      "required": [
+        "result_id",
+        "body"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_addAttachmentToRun",
+    "description": "[TestRail API] Maximum upload size is 256MB",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "run_id": {
+          "type": "integer"
+        },
+        "body": {}
+      },
+      "required": [
+        "run_id",
+        "body"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_addCase",
+    "description": "[TestRail API] Create a new test case",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "section_id": {
+          "type": "integer"
+        },
+        "body": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "created_by": {
+              "type": "integer"
+            },
+            "created_on": {
+              "type": "integer",
+              "description": "UNIX timestamp"
+            },
+            "updated_by": {
+              "type": "integer"
+            },
+            "updated_on": {
+              "type": "integer",
+              "description": "UNIX timestamp"
+            },
+            "estimate": {
+              "type": "string",
+              "description": "Time estimate, e.g. \"30s\" or \"1m 45s\""
+            },
+            "estimate_forecast": {
+              "type": "string"
+            },
+            "milestone_id": {
+              "type": "integer"
+            },
+            "refs": {
+              "type": "string"
+            },
+            "section_id": {
+              "type": "integer"
+            },
+            "suite_id": {
+              "type": "integer"
+            },
+            "template_id": {
+              "type": "integer"
+            },
+            "title": {
+              "type": "string"
+            },
+            "type_id": {
+              "type": "integer"
+            }
+          }
+        }
+      },
+      "required": [
+        "section_id",
+        "body"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_addConfig",
+    "description": "[TestRail API] Create a new configuration",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "config_group_id": {
+          "type": "integer"
+        },
+        "body": {
+          "name": {
+            "type": "string",
+            "description": "The name of the configuration"
+          }
+        }
+      },
+      "required": [
+        "config_group_id",
+        "body"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_addConfigGroup",
+    "description": "[TestRail API] Create a new configuration group",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "project_id": {
+          "type": "integer"
+        },
+        "body": {
+          "name": {
+            "type": "string",
+            "description": "The name of the configuration group"
+          }
+        }
+      },
+      "required": [
+        "project_id",
+        "body"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_addMilestone",
+    "description": "[TestRail API] Add a milestone to a project",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "project_id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "due_on": {
+          "type": "integer"
+        },
+        "parent_id": {
+          "type": "integer"
+        },
+        "refs": {
+          "type": "string"
+        },
+        "start_on": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "project_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_addPlan",
+    "description": "[TestRail API] Add a test plan",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "project_id": {
+          "type": "integer"
+        },
+        "body": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "name": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "milestone_id": {
+              "type": "integer"
+            },
+            "entries": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      "required": [
+        "project_id",
+        "body"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_addPlanEntry",
+    "description": "[TestRail API] Add an entry to a test plan",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "plan_id": {
+          "type": "integer"
+        },
+        "body": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "plan_id",
+        "body"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_addResult",
+    "description": "[TestRail API] Add a result for a test",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "test_id": {
+          "type": "integer"
+        },
+        "status_id": {
+          "type": "integer"
+        },
+        "comment": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "elapsed": {
+          "type": "string"
+        },
+        "defects": {
+          "type": "string"
+        },
+        "assignedto_id": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "test_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_addResultForCase",
+    "description": "[TestRail API] Add a result for a case in a run",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "run_id": {
+          "type": "integer"
+        },
+        "case_id": {
+          "type": "integer"
+        },
+        "status_id": {
+          "type": "integer"
+        },
+        "comment": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "elapsed": {
+          "type": "string"
+        },
+        "defects": {
+          "type": "string"
+        },
+        "assignedto_id": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "run_id",
+        "case_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_addResults",
+    "description": "[TestRail API] Add multiple results for a run",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "run_id": {
+          "type": "integer"
+        },
+        "body": {
+          "type": "object",
+          "properties": {
+            "results": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "test_id": {
+                    "type": "integer"
+                  },
+                  "status_id": {
+                    "type": "integer"
+                  },
+                  "comment": {
+                    "type": "string"
+                  },
+                  "version": {
+                    "type": "string"
+                  },
+                  "elapsed": {
+                    "type": "string"
+                  },
+                  "defects": {
+                    "type": "string"
+                  },
+                  "assignedto_id": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "required": [
+        "run_id",
+        "body"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_addResultsForCases",
+    "description": "[TestRail API] Add results for multiple cases in a run",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "run_id": {
+          "type": "integer"
+        },
+        "body": {
+          "type": "object",
+          "properties": {
+            "results": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "test_id": {
+                    "type": "integer"
+                  },
+                  "status_id": {
+                    "type": "integer"
+                  },
+                  "comment": {
+                    "type": "string"
+                  },
+                  "version": {
+                    "type": "string"
+                  },
+                  "elapsed": {
+                    "type": "string"
+                  },
+                  "defects": {
+                    "type": "string"
+                  },
+                  "assignedto_id": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "required": [
+        "run_id",
+        "body"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_addRun",
+    "description": "[TestRail API] Add a test run",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "project_id": {
+          "type": "integer"
+        },
+        "suite_id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "milestone_id": {
+          "type": "integer"
+        },
+        "assignedto_id": {
+          "type": "integer"
+        },
+        "include_all": {
+          "type": "boolean"
+        },
+        "case_ids": {
+          "type": "string"
+        },
+        "refs": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "project_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_addRunToPlanEntry",
+    "description": "[TestRail API] Add a run to a plan entry",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "plan_id": {
+          "type": "integer"
+        },
+        "entry_id": {
+          "type": "string"
+        },
+        "body": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "plan_id",
+        "entry_id",
+        "body"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_addSection",
+    "description": "[TestRail API] Add a section to a project",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "project_id": {
+          "type": "integer"
+        },
+        "suite_id": {
+          "type": "integer"
+        },
+        "parent_id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "project_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_addSharedStep",
+    "description": "[TestRail API] Add a shared step to a project",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "project_id": {
+          "type": "integer"
+        },
+        "title": {
+          "type": "string"
+        },
+        "custom_steps_separated": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "project_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_addSuite",
+    "description": "[TestRail API] Add a suite to a project",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "project_id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "project_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_addUser",
+    "description": "[TestRail API] Create a new user",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "is_admin": {
+          "type": "boolean"
+        },
+        "role_id": {
+          "type": "integer"
+        },
+        "group_ids": {
+          "type": "string"
+        },
+        "assigned_projects": {
+          "type": "string"
+        },
+        "email_notifications": {
+          "type": "boolean"
+        },
+        "mfa_required": {
+          "type": "boolean"
+        },
+        "sso_enabled": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "email",
+        "name"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_closePlan",
+    "description": "[TestRail API] Close a test plan",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "plan_id": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "plan_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_closeRun",
+    "description": "[TestRail API] Close a test run",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "run_id": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "run_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_copyCasesToSection",
+    "description": "[TestRail API] Copy test cases to a section",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "section_id": {
+          "type": "integer"
+        },
+        "case_ids": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "section_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_deleteCase",
+    "description": "[TestRail API] Deleting a test case cannot be undone and permanently deletes all test results in active test runs.",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "case_id": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "case_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_deleteCasesBySuite",
+    "description": "[TestRail API] Deleting test cases cannot be undone and permanently deletes all test results in active test runs.",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "suite_id": {
+          "type": "integer"
+        },
+        "case_ids": {
+          "type": "string"
+        },
+        "project_id": {
+          "type": "integer"
+        },
+        "soft": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "suite_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_deleteConfig",
+    "description": "[TestRail API] Delete an existing configuration",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "config_id": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "config_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_deleteConfigGroup",
+    "description": "[TestRail API] Delete a configuration group and all its configurations",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "config_group_id": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "config_group_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_deleteMilestone",
+    "description": "[TestRail API] Delete a milestone",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "milestone_id": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "milestone_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_deleteRun",
+    "description": "[TestRail API] Delete a test run",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "run_id": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "run_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_deleteSection",
+    "description": "[TestRail API] Delete a section",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "section_id": {
+          "type": "integer"
+        },
+        "soft": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "section_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_deleteSharedStep",
+    "description": "[TestRail API] Delete a shared step",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "shared_update_id": {
+          "type": "integer"
+        },
+        "keep_in_cases": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "shared_update_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_deleteSuite",
+    "description": "[TestRail API] Delete a suite",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "suite_id": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "suite_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_getAttachment",
+    "description": "[TestRail API] Get an attachment by ID",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "attachment_id": {
+          "type": "string"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "offset": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "attachment_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_getAttachmentsForCase",
+    "description": "[TestRail API] Get attachments for a test case",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "case_id": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "offset": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "case_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_getAttachmentsForPlan",
+    "description": "[TestRail API] Get attachments for a test plan",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "plan_id": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "offset": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "plan_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_getAttachmentsForPlanEntry",
+    "description": "[TestRail API] Get attachments for a test plan entry",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "plan_id": {
+          "type": "integer"
+        },
+        "entry_id": {
+          "type": "string"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "offset": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "plan_id",
+        "entry_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_getAttachmentsForRun",
+    "description": "[TestRail API] Get attachments for a test run",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "run_id": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "offset": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "run_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_getAttachmentsForTest",
+    "description": "[TestRail API] Get attachments for a test",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "test_id": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "offset": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "test_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_getCase",
+    "description": "[TestRail API] Get a single test case",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "case_id": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "case_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_getCaseFields",
+    "description": "[TestRail API] Get custom fields for test cases",
+    "arguments": {
+      "type": "object",
+      "properties": {}
+    }
+  },
+  {
+    "name": "TestRail_API_getCaseHistory",
+    "description": "[TestRail API] Get case history",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "case_id": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "case_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_getCaseStatuses",
+    "description": "[TestRail API] Get case statuses",
+    "arguments": {
+      "type": "object",
+      "properties": {}
+    }
+  },
+  {
+    "name": "TestRail_API_getCaseTypes",
+    "description": "[TestRail API] Get case type options",
+    "arguments": {
+      "type": "object",
+      "properties": {}
+    }
+  },
+  {
+    "name": "TestRail_API_getCases",
+    "description": "[TestRail API] Get test cases in a suite (or specific section of suite)",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "project_id": {
+          "type": "integer"
+        },
+        "suite_id": {
+          "type": "integer"
+        },
+        "created_after": {
+          "type": "integer"
+        },
+        "created_before": {
+          "type": "integer"
+        },
+        "created_by": {
+          "type": "string"
+        },
+        "milestone_id": {
+          "type": "string"
+        },
+        "priority_id": {
+          "type": "string"
+        },
+        "template_id": {
+          "type": "string"
+        },
+        "type_id": {
+          "type": "string"
+        },
+        "updated_after": {
+          "type": "integer"
+        },
+        "updated_before": {
+          "type": "integer"
+        },
+        "updated_by": {
+          "type": "string"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "offset": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "project_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_getConfigs",
+    "description": "[TestRail API] Get configuration groups for a project",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "project_id": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "project_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_getCurrentUser",
+    "description": "[TestRail API] Get the current user by ID",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "user_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_getMilestone",
+    "description": "[TestRail API] Get a milestone by ID",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "milestone_id": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "milestone_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_getMilestones",
+    "description": "[TestRail API] Get milestones for a project",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "project_id": {
+          "type": "integer"
+        },
+        "is_completed": {
+          "type": "integer"
+        },
+        "is_started": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "offset": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "project_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_getPlan",
+    "description": "[TestRail API] Get a test plan by ID",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "plan_id": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "plan_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_getPlans",
+    "description": "[TestRail API] Get test plans for a project",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "project_id": {
+          "type": "integer"
+        },
+        "created_after": {
+          "type": "integer"
+        },
+        "created_before": {
+          "type": "integer"
+        },
+        "created_by": {
+          "type": "string"
+        },
+        "is_completed": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "offset": {
+          "type": "integer"
+        },
+        "milestone_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "project_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_getPriorities",
+    "description": "[TestRail API] Get priority options for test cases",
+    "arguments": {
+      "type": "object",
+      "properties": {}
+    }
+  },
+  {
+    "name": "TestRail_API_getProjects",
+    "description": "[TestRail API] Get all projects for the current user",
+    "arguments": {
+      "type": "object",
+      "properties": {}
+    }
+  },
+  {
+    "name": "TestRail_API_getResultFields",
+    "description": "[TestRail API] Get result fields",
+    "arguments": {
+      "type": "object",
+      "properties": {}
+    }
+  },
+  {
+    "name": "TestRail_API_getResults",
+    "description": "[TestRail API] Get results for a test",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "test_id": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "offset": {
+          "type": "integer"
+        },
+        "defects_filter": {
+          "type": "string"
+        },
+        "status_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "test_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_getResultsForCase",
+    "description": "[TestRail API] Get results for a case in a run",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "run_id": {
+          "type": "integer"
+        },
+        "case_id": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "offset": {
+          "type": "integer"
+        },
+        "defects_filter": {
+          "type": "string"
+        },
+        "status_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "run_id",
+        "case_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_getResultsForRun",
+    "description": "[TestRail API] Get results for a run",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "run_id": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "offset": {
+          "type": "integer"
+        },
+        "defects_filter": {
+          "type": "string"
+        },
+        "status_id": {
+          "type": "string"
+        },
+        "created_after": {
+          "type": "integer"
+        },
+        "created_before": {
+          "type": "integer"
+        },
+        "created_by": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "run_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_getRun",
+    "description": "[TestRail API] Get a test run by ID",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "run_id": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "run_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_getRuns",
+    "description": "[TestRail API] Get test runs for a project",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "project_id": {
+          "type": "integer"
+        },
+        "created_after": {
+          "type": "integer"
+        },
+        "created_before": {
+          "type": "integer"
+        },
+        "created_by": {
+          "type": "string"
+        },
+        "is_completed": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "offset": {
+          "type": "integer"
+        },
+        "milestone_id": {
+          "type": "string"
+        },
+        "refs_filter": {
+          "type": "string"
+        },
+        "suite_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "project_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_getSection",
+    "description": "[TestRail API] Get a section by ID",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "section_id": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "section_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_getSections",
+    "description": "[TestRail API] Get sections for a project/suite",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "project_id": {
+          "type": "integer"
+        },
+        "suite_id": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "offset": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "project_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_getSharedStep",
+    "description": "[TestRail API] Get a shared step by ID",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "shared_step_id": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "shared_step_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_getSharedStepHistory",
+    "description": "[TestRail API] Get the history of a shared step",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "shared_step_id": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "shared_step_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_getSharedSteps",
+    "description": "[TestRail API] Get shared steps for a project",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "project_id": {
+          "type": "integer"
+        },
+        "created_after": {
+          "type": "integer"
+        },
+        "created_before": {
+          "type": "integer"
+        },
+        "created_by": {
+          "type": "string"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "offset": {
+          "type": "integer"
+        },
+        "updated_after": {
+          "type": "integer"
+        },
+        "updated_before": {
+          "type": "integer"
+        },
+        "refs": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "project_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_getStatuses",
+    "description": "[TestRail API] Get all available statuses",
+    "arguments": {
+      "type": "object",
+      "properties": {}
+    }
+  },
+  {
+    "name": "TestRail_API_getSuite",
+    "description": "[TestRail API] Get a suite by ID",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "suite_id": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "suite_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_getSuites",
+    "description": "[TestRail API] Get all suites for a project",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "project_id": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "project_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_getTemplates",
+    "description": "[TestRail API] Get templates for test cases per project",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "project_id": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "project_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_getTest",
+    "description": "[TestRail API] Get a test by ID",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "test_id": {
+          "type": "integer"
+        },
+        "with_data": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "test_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_getTests",
+    "description": "[TestRail API] Get tests for a run",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "run_id": {
+          "type": "integer"
+        },
+        "status_id": {
+          "type": "string"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "offset": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "run_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_getUser",
+    "description": "[TestRail API] Get a user by ID",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "user_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_getUserByEmail",
+    "description": "[TestRail API] Find a user by email",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "email"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_getUsers",
+    "description": "[TestRail API] Get all users",
+    "arguments": {
+      "type": "object",
+      "properties": {}
+    }
+  },
+  {
+    "name": "TestRail_API_getUsersByProject",
+    "description": "[TestRail API] Get users for a project",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "project_id": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "project_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_moveCasesToSection",
+    "description": "[TestRail API] Move test cases to a section",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "section_id": {
+          "type": "integer"
+        },
+        "case_ids": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "section_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_moveSection",
+    "description": "[TestRail API] Move a section",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "section_id": {
+          "type": "integer"
+        },
+        "parent_id": {
+          "type": "integer"
+        },
+        "after_id": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "section_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_updateCase",
+    "description": "[TestRail API] Update an existing test case (partial updates supported)",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "case_id": {
+          "type": "integer"
+        },
+        "body": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "created_by": {
+              "type": "integer"
+            },
+            "created_on": {
+              "type": "integer",
+              "description": "UNIX timestamp"
+            },
+            "updated_by": {
+              "type": "integer"
+            },
+            "updated_on": {
+              "type": "integer",
+              "description": "UNIX timestamp"
+            },
+            "estimate": {
+              "type": "string",
+              "description": "Time estimate, e.g. \"30s\" or \"1m 45s\""
+            },
+            "estimate_forecast": {
+              "type": "string"
+            },
+            "milestone_id": {
+              "type": "integer"
+            },
+            "refs": {
+              "type": "string"
+            },
+            "section_id": {
+              "type": "integer"
+            },
+            "suite_id": {
+              "type": "integer"
+            },
+            "template_id": {
+              "type": "integer"
+            },
+            "title": {
+              "type": "string"
+            },
+            "type_id": {
+              "type": "integer"
+            }
+          }
+        }
+      },
+      "required": [
+        "case_id",
+        "body"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_updateCasesByCaseId",
+    "description": "[TestRail API] Updates multiple test cases with the same values. Does not support updating multiple test cases with different values per case.",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "case_ids": {
+          "type": "string"
+        },
+        "suite_id": {
+          "type": "integer"
+        },
+        "section_id": {
+          "type": "integer"
+        },
+        "title": {
+          "type": "string"
+        },
+        "template_id": {
+          "type": "integer"
+        },
+        "type_id": {
+          "type": "integer"
+        },
+        "priority_id": {
+          "type": "integer"
+        },
+        "estimate": {
+          "type": "string"
+        },
+        "milestone_id": {
+          "type": "integer"
+        },
+        "refs": {
+          "type": "string"
+        },
+        "body": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "created_by": {
+              "type": "integer"
+            },
+            "created_on": {
+              "type": "integer",
+              "description": "UNIX timestamp"
+            },
+            "updated_by": {
+              "type": "integer"
+            },
+            "updated_on": {
+              "type": "integer",
+              "description": "UNIX timestamp"
+            },
+            "estimate": {
+              "type": "string",
+              "description": "Time estimate, e.g. \"30s\" or \"1m 45s\""
+            },
+            "estimate_forecast": {
+              "type": "string"
+            },
+            "milestone_id": {
+              "type": "integer"
+            },
+            "refs": {
+              "type": "string"
+            },
+            "section_id": {
+              "type": "integer"
+            },
+            "suite_id": {
+              "type": "integer"
+            },
+            "template_id": {
+              "type": "integer"
+            },
+            "title": {
+              "type": "string"
+            },
+            "type_id": {
+              "type": "integer"
+            }
+          }
+        }
+      },
+      "required": [
+        "case_ids",
+        "body"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_updateCasesBySuite",
+    "description": "[TestRail API] Updates multiple test cases with the same values. Does not support updating multiple test cases with different values per case.",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "suite_id": {
+          "type": "integer"
+        },
+        "case_ids": {
+          "type": "string"
+        },
+        "section_id": {
+          "type": "integer"
+        },
+        "title": {
+          "type": "string"
+        },
+        "template_id": {
+          "type": "integer"
+        },
+        "type_id": {
+          "type": "integer"
+        },
+        "priority_id": {
+          "type": "integer"
+        },
+        "estimate": {
+          "type": "string"
+        },
+        "milestone_id": {
+          "type": "integer"
+        },
+        "refs": {
+          "type": "string"
+        },
+        "body": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "created_by": {
+              "type": "integer"
+            },
+            "created_on": {
+              "type": "integer",
+              "description": "UNIX timestamp"
+            },
+            "updated_by": {
+              "type": "integer"
+            },
+            "updated_on": {
+              "type": "integer",
+              "description": "UNIX timestamp"
+            },
+            "estimate": {
+              "type": "string",
+              "description": "Time estimate, e.g. \"30s\" or \"1m 45s\""
+            },
+            "estimate_forecast": {
+              "type": "string"
+            },
+            "milestone_id": {
+              "type": "integer"
+            },
+            "refs": {
+              "type": "string"
+            },
+            "section_id": {
+              "type": "integer"
+            },
+            "suite_id": {
+              "type": "integer"
+            },
+            "template_id": {
+              "type": "integer"
+            },
+            "title": {
+              "type": "string"
+            },
+            "type_id": {
+              "type": "integer"
+            }
+          }
+        }
+      },
+      "required": [
+        "suite_id",
+        "body"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_updateConfig",
+    "description": "[TestRail API] Update an existing configuration",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "config_id": {
+          "type": "integer"
+        },
+        "body": {
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "config_id",
+        "body"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_updateConfigGroup",
+    "description": "[TestRail API] Update an existing configuration group",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "config_group_id": {
+          "type": "integer"
+        },
+        "body": {
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "config_group_id",
+        "body"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_updateMilestone",
+    "description": "[TestRail API] Update an existing milestone",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "milestone_id": {
+          "type": "integer"
+        },
+        "parent_id": {
+          "type": "integer"
+        },
+        "start_on": {
+          "type": "integer"
+        },
+        "is_completed": {
+          "type": "integer"
+        },
+        "is_started": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "milestone_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_updatePlan",
+    "description": "[TestRail API] Update a test plan",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "plan_id": {
+          "type": "integer"
+        },
+        "body": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "name": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "milestone_id": {
+              "type": "integer"
+            },
+            "entries": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      "required": [
+        "plan_id",
+        "body"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_updatePlanEntry",
+    "description": "[TestRail API] Update a test plan entry",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "plan_id": {
+          "type": "integer"
+        },
+        "entry_id": {
+          "type": "string"
+        },
+        "body": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "plan_id",
+        "entry_id",
+        "body"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_updateRun",
+    "description": "[TestRail API] Update a test run",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "run_id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "milestone_id": {
+          "type": "integer"
+        },
+        "assignedto_id": {
+          "type": "integer"
+        },
+        "include_all": {
+          "type": "boolean"
+        },
+        "case_ids": {
+          "type": "string"
+        },
+        "refs": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "run_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_updateRunToPlanEntry",
+    "description": "[TestRail API] Update a run in a plan entry",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "plan_id": {
+          "type": "integer"
+        },
+        "run_id": {
+          "type": "integer"
+        },
+        "body": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "plan_id",
+        "run_id",
+        "body"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_updateSection",
+    "description": "[TestRail API] Update a section",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "section_id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "section_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_updateSharedStep",
+    "description": "[TestRail API] Update a shared step",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "shared_update_id": {
+          "type": "integer"
+        },
+        "title": {
+          "type": "string"
+        },
+        "custom_steps_separated": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "shared_update_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_updateSuite",
+    "description": "[TestRail API] Update a suite",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "suite_id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "suite_id"
+      ]
+    }
+  },
+  {
+    "name": "TestRail_API_updateUser",
+    "description": "[TestRail API] Update an existing user",
+    "arguments": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "integer"
+        },
+        "email": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "is_admin": {
+          "type": "boolean"
+        },
+        "role_id": {
+          "type": "integer"
+        },
+        "group_ids": {
+          "type": "string"
+        },
+        "assigned_projects": {
+          "type": "string"
+        },
+        "email_notifications": {
+          "type": "boolean"
+        },
+        "mfa_required": {
+          "type": "boolean"
+        },
+        "sso_enabled": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "user_id"
+      ]
+    }
+  }
+]

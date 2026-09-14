@@ -1,0 +1,26 @@
+.env
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+dist/
+build/
+# Generated client bundle (regenerate with scripts/build_client_release.py)
+release/testrail-mcp-client-*.zip
+*.egg
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+# Jira-vs-TestRail coverage report add-on (not part of the MCP server; regenerate with coverage/coverage_report.py)
+/coverage/
+# Black Duck SCA scanner config — contains internal server URL / user; tooling only, not server code
+.codesight/
+
+# Security-audit reports (internal findings — do not publish)
+PUBLIC_REPOSITORY_SECURITY_AUDIT.md
+PUBLIC_REPOSITORY_REMEDIATION_PLAN.md
