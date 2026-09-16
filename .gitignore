@@ -34,3 +34,6 @@ PORTFOLIO_AUDIT.md
 # Generated client release bundles (built by scripts/build_client_release.py; publish via GitHub Releases)
 release/testrail-mcp-client-*/
 release/*.whl
+
+# Kiro session working specs (internal planning notes — never publish)
+.kiro/specs/quality-uplift/
