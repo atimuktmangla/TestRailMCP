@@ -8,8 +8,13 @@ REM ============================================================
 setlocal
 cd /d "%~dp0"
 
-echo [setup] Installing the testrail_mcp package (editable)...
-python -m pip install -e . || goto :err
+python -c "import testrail_mcp" 1>nul 2>nul
+if errorlevel 1 (
+  echo [setup] Installing the testrail_mcp package ^(editable^)...
+  python -m pip install -e . || goto :err
+) else (
+  echo [setup] Package already installed - skipping install.
+)
 
 echo [start] Starting TestRail MCP server (stdio transport)...
 python -m testrail_mcp
