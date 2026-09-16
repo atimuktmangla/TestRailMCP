@@ -24,3 +24,13 @@ htmlcov/
 # Security-audit reports (internal findings — do not publish)
 PUBLIC_REPOSITORY_SECURITY_AUDIT.md
 PUBLIC_REPOSITORY_REMEDIATION_PLAN.md
+
+# ─── Kiro local settings (machine-specific — never publish) ───────────────────
+.kiro/settings/mcp.json
+.kiro/steering/engineering.md
+
+# Internal portfolio audit (do not publish)
+PORTFOLIO_AUDIT.md
+# Generated client release bundles (built by scripts/build_client_release.py; publish via GitHub Releases)
+release/testrail-mcp-client-*/
+release/*.whl
