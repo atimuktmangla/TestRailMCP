@@ -2,6 +2,13 @@
 
 Model Context Protocol (MCP) server for TestRail, with LLM-assisted test case creation.
 
+![Architecture](docs/architecture.png)
+
+> The **LLM lives in the MCP client**; this server is a typed, spec-driven
+> TestRail tool bridge (it makes no LLM call). See
+> [docs/AI_ARCHITECTURE.md](docs/AI_ARCHITECTURE.md), the decision records in
+> [docs/adr/](docs/adr/), and [PROJECT_STORY.md](PROJECT_STORY.md).
+
 **Python:** 3.11 minimum; **all newer 3.x releases** (3.12, 3.13, and later) are supported (`requires-python >=3.11` in [`pyproject.toml`](pyproject.toml)).
 
 ## Layout

@@ -1,0 +1,25 @@
+%% TestRailMCP — system architecture
+%% Render: npx @mermaid-js/mermaid-cli -i docs/architecture.mmd -o docs/architecture.png
+flowchart TB
+    subgraph client["MCP client"]
+        IDE["Cursor / Claude / any MCP client<br/>(the LLM lives here)"]
+    end
+
+    subgraph server["TestRailMCP server (testrail_mcp/)"]
+        direction TB
+        Trans["Transport: stdio | Streamable HTTP (settings.py)"]
+        Srv["server.py<br/>list_tools + call_tool"]
+        Spec["data/tools_spec.json<br/>tool definitions (JSON-schema args)"]
+        Route["routing.py<br/>name->api_method, build request, URL render"]
+        RO["readOnlyHint per tool<br/>(get_* = read, else write)"]
+        Client["client.py<br/>TestRail HTTP (Basic auth)"]
+    end
+
+    TR["TestRail<br/>API v2 (your instance)"]
+
+    IDE -->|"MCP tool call"| Trans --> Srv
+    Srv --> Spec
+    Srv --> Route
+    Srv --> RO
+    Srv --> Client -->|"Basic auth (TESTRAIL_*)"| TR
+    TR -->|"JSON"| Client --> Srv -->|"structured result"| IDE
